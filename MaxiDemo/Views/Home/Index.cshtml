@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Maxi Demo</title>
+    <link href="~/Content/themes/default/css/home.css" rel="stylesheet" />
+    <link href="~/Content/Themes/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet" />
+</head>
+<body>
+    <h1 data-bind="text: Title"></h1>
+
+    <div id="menuHolder">
+        <ul data-bind="menu: MenuOptions, foreach: MenuOptions">
+            <li>
+                <a href="#"><span class="#ui-icon ui-icon-disk" data-bind="text: description"></span></a>
+                <ul data-bind="foreach: menuChilds">
+                    <li>
+                        <a href="#"><span class="#ui-icon ui-icon-disk" data-bind="text: description"></span></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div>
+    </div>
+    <script type="text/javascript" data-main='App/init' src="~/Scripts/require.js"></script>
+</body>
+</html>
