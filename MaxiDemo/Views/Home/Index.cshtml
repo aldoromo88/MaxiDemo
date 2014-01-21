@@ -10,17 +10,18 @@
     <title>Maxi Demo</title>
     <link href="~/Content/themes/default/css/home.css" rel="stylesheet" />
     <link href="~/Content/Themes/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet" />
+    <link href="~/Content/themes/default/css/toastr.css" rel="stylesheet" />
 </head>
 <body>
     <h1 data-bind="text: Title"></h1>
 
-    <div id="menuHolder">
-        <ul data-bind="menu: MenuOptions, foreach: MenuOptions">
+    <div id="menuHolder" data-bind="with:UserContext">
+        <ul data-bind="menu: Permissions, foreach: Permissions">
             <li>
-                <a href="#"><span class="#ui-icon ui-icon-disk" data-bind="text: description"></span></a>
-                <ul data-bind="foreach: menuChilds">
+                <a href="#"><span class="#ui-icon ui-icon-disk" data-bind="text: Description"></span></a>
+                <ul data-bind="foreach: Items">
                     <li>
-                        <a href="#"><span class="#ui-icon ui-icon-disk" data-bind="text: description"></span></a>
+                        <a href="#" data-bind=" click: $root.MenuSelected"><span class="#ui-icon ui-icon-disk" data-bind="text: Description"></span></a>
                     </li>
                 </ul>
             </li>

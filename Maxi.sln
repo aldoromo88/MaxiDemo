@@ -2,6 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaxiDemo", "MaxiDemo\MaxiDemo.csproj", "{486225BE-6C3A-42F5-9D1B-3E0F5C85D15A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AF225603-575F-449D-9CF6-6E4598E55ECE} = {AF225603-575F-449D-9CF6-6E4598E55ECE}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaxiDemo.Data", "MaxiDemo.Data\MaxiDemo.Data.csproj", "{AF225603-575F-449D-9CF6-6E4598E55ECE}"
 EndProject

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MaxiDemo.Data.DTO;
 
 namespace MaxiDemo.Data.Applications
@@ -9,12 +10,7 @@ namespace MaxiDemo.Data.Applications
 
         public AuthenticationResponse AuthenticateUser(string loginName, string password)
         {
-            return new AuthenticationResponse
-            {
-                IsValid = true,
-                UserName = "User Demo",
-                SessionGuid = Guid.NewGuid(),
-                Permissions = new List<UserPermission>
+            var menuOptions = new List<UserPermission>
                 {
                     new UserPermission{ DisplayName = "Rep Cobranza 1", ParentName = "Cobranza", Name = "RepCobranza1"},
                     new UserPermission{ DisplayName = "Rep Cobranza 2", ParentName = "Cobranza", Name = "RepCobranza2"},
@@ -28,7 +24,26 @@ namespace MaxiDemo.Data.Applications
                     new UserPermission{ DisplayName = "Rep Finanzas 2", ParentName = "Finanzas", Name = "RepFinanzas2"},
                     new UserPermission{ DisplayName = "Rep Finanzas 3", ParentName = "Finanzas", Name = "RepFinanzas3"},
 
-                }
+                };
+
+
+            return new AuthenticationResponse
+            {
+                IsValid = true,
+                UserName = "User Demo",
+                SessionGuid = Guid.NewGuid(),
+                Permissions = menuOptions
+                                .GroupBy(permission => permission.ParentName)
+                                .Select(grouping => new
+                                {
+                                    Description = grouping.Key,
+                                    Items = grouping.Select(c => new
+                                    {
+                                        Description = c.DisplayName,
+                                        c.Name,
+                                        c.IsSingleInstance
+                                    })
+                                })
             };
         }
     }
