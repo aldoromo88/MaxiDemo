@@ -1,10 +1,29 @@
 ﻿define(['knockout', 'jqueryui'], function (ko) {
     ko.bindingHandlers.menu = {
         init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
-            $(element).menu();
+            var menu = $(element);
+            menu.menu({ position: { my: "left bottom", at: "right-50 top+0" } });
+            $('.ui-menu-icon.ui-icon.ui-icon-carat-1-e').remove();
+            //$(element).menu();
+            
+
+            var blurTimer;
+            var blurTimeAbandoned = 300;  // time in ms for when menu is consider no longer in focus
+
+            menu.on('menufocus', function () {
+                clearTimeout(blurTimer);
+            });
+
+            menu.on('menublur', function (event) {
+                blurTimer = setTimeout(function () {
+                    menu.menu("collapseAll", null, true);
+                }, blurTimeAbandoned);
+            });
         },
         update: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
-            $(element).menu();
+            $(element).menu({ position: { my: "left bottom", at: "right-50 top+0" } });
+            $('.ui-menu-icon.ui-icon.ui-icon-carat-1-e').remove();
+            //$(element).menu();
         }
     };
     ko.bindingHandlers.tabs = {

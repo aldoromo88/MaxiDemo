@@ -1,8 +1,6 @@
 ﻿define(['knockout', 'logger', '../../proxies/userProxy'], function (ko, logger, userProxy) {
     init();
 
-    logger.info('Probando', 'Test');
-
     var _pluginHolder = $('#pluginHolder');
     var _title = ko.observable('Maxi Demo');
     var _userContext = ko.observable();

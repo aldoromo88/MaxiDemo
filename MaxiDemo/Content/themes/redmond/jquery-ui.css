@@ -453,17 +453,20 @@ button.ui-button::-moz-focus-inner {
 	list-style: none;
 	padding: 2px;
 	margin: 0;
-	display: block;
+	display: flex;
 	outline: none;
+    overflow: visible !important;
 }
 .ui-menu .ui-menu {
-	margin-top: -3px;
+	overflow: visible !important;
+    margin-top: -3px;
+    display: block;
 	position: absolute;
 }
 .ui-menu .ui-menu-item {
 	margin: 0;
 	padding: 0;
-	width: 150px;
+	width: auto;
 	/* support: IE10, see #8844 */
 	list-style-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
 }

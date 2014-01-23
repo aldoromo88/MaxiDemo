@@ -18,10 +18,9 @@
 
 #menuHolder {
     position: absolute;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 34px;
     top: 0px;
-    bottom: 50px;
     left: 0px;
     z-index: 1;
     overflow: visible;
@@ -32,10 +31,17 @@
     position: absolute;
     width: auto;
     height: auto;
-    right: 40px;
-    left: 157px;
-    top: 0px;
-    bottom: 50px;
+    right: 0px;
+    left: 0px;
+    top: 34px;
+    bottom: 0px;
     overflow: auto;
     z-index: 0;
+}
+
+.plugin {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
 }

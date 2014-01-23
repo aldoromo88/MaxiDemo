@@ -15,38 +15,32 @@
 
 
     <script type="text/javascript" data-main='App/init' src="~/Scripts/require.js"></script>
+    
 </head>
 <body>
-    <div id="wrapper1">
-        <div id="wrapper2">
 
-            @*<h1 data-bind="text: Title"></h1>*@
-
-
-            <div id="menuHolder" data-bind="with: UserContext">
-
-                <ul data-bind="menu:1, foreach: Permissions">
+    <div id="menuHolder" data-bind="with: UserContext">
+        <ul data-bind="menu: 1, foreach: Permissions">
+            <li>
+                <a href="#"><span data-bind="text: Description"></span></a>
+                <ul data-bind="foreach: Items">
                     <li>
-                        <a href="#"><span data-bind="text: Description"></span></a>
-                        <ul data-bind="foreach: Items">
-                            <li>
-                                <a href="#" data-bind=" click: $root.MenuSelected"><span data-bind="    text: Description"></span></a>
-                            </li>
-                        </ul>
+                        <a href="#" data-bind=" click: $root.MenuSelected"><span data-bind="    text: Description"></span></a>
                     </li>
                 </ul>
-            </div>
-
-            <div id="pluginHolder">
-                <ul id="tabs" data-bind="tabs: TabCount, foreach: OpenTabs">
-                    <li data-bind="attr: { type: Name }"><a data-bind="    attr: { href: NavTabId }, text: Description"></a><span data-bind="    click: $parent.CloseTab" class="ui-icon ui-icon-close" role="presentation">Remove Tab</span></li>
-                </ul>
-                <!-- ko foreach: OpenTabs -->
-                <div data-bind="attr: { id: TabId }, html: View">
-                </div>
-                <!-- /ko -->
-            </div>
-        </div>
+            </li>
+        </ul>
     </div>
+
+    <div id="pluginHolder">
+        <ul id="tabs" data-bind="tabs: TabCount, foreach: OpenTabs">
+            <li data-bind="attr: { type: Name }"><a data-bind="    attr: { href: NavTabId }, text: Description"></a><span data-bind="    click: $parent.CloseTab" class="ui-icon ui-icon-close" role="presentation">Remove Tab</span></li>
+        </ul>
+        <!-- ko foreach: OpenTabs -->
+        <div data-bind="attr: { id: TabId }, html: View" >
+        </div>
+        <!-- /ko -->
+    </div>
+
 </body>
 </html>
