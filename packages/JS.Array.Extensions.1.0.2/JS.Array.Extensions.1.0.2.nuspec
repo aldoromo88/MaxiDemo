@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>JS.Array.Extensions</id>
+    <version>1.0.2</version>
+    <title>Javasscript Array Extensions</title>
+    <authors>Junil Um</authors>
+    <owners>Junil Um</owners>
+    <licenseUrl>https://github.com/powerumc/array-extensions/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/powerumc/array-extensions</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>You can found many examples there https://github.com/powerumc/array-extensions
+
+If you have any questions feel free to contact me.
+http://blog.powerumc.kr
+powerumc@gmail.com</description>
+    <summary>Javascript Array Extensions
+==================
+  - It is an array extensions that can be used javascript and node.js.
+  - It is just likes C# extension methods or lambda expression can be used.</summary>
+    <releaseNotes>v1.0
+===
+any
+first
+firstOrDefault
+firstOrNew
+last
+lastOrDefault
+lastOrNew
+where
+select
+foreach
+orderBy
+take
+skip
+sum
+average
+max
+min
+range and Array.range
+union
+clone</releaseNotes>
+    <copyright>Junil Um 2013</copyright>
+    <language>en-US</language>
+    <tags>javascript array extension</tags>
+  </metadata>
+</package>

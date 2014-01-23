@@ -41,7 +41,8 @@ namespace MaxiDemo.Data.Applications
                                     {
                                         Description = c.DisplayName,
                                         c.Name,
-                                        c.IsSingleInstance
+                                        c.IsSingleInstance,
+                                        ParentName = grouping.Key
                                     })
                                 })
             };

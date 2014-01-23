@@ -1,4 +1,5 @@
-﻿requirejs.config({
+﻿
+requirejs.config({
     paths: {
         'text': '../Scripts/text',
         'knockout': '../Scripts/knockout-3.0.0.debug',
@@ -9,7 +10,7 @@
         'breeze': '../Scripts/breeze.min',
         'Q': '../Scripts/q',
         'toastr': '../Scripts/toastr',
-        'linq': '../Scripts/linq',
+        'arrayExtensions': '../Scripts/array.extensions',
         'logger': 'helpers/logger'
         //'durandal': '../Scripts/durandal',
         //'plugins': '../Scripts/durandal/plugins',

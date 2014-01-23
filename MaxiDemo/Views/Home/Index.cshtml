@@ -8,27 +8,45 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Maxi Demo</title>
+    <link href="~/Content/themes/default/css/colors.css" rel="stylesheet" />
     <link href="~/Content/themes/default/css/home.css" rel="stylesheet" />
-    <link href="~/Content/Themes/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet" />
+    <link href="~/Content/themes/redmond/jquery-ui.css" rel="stylesheet" />
     <link href="~/Content/themes/default/css/toastr.css" rel="stylesheet" />
+
+
+    <script type="text/javascript" data-main='App/init' src="~/Scripts/require.js"></script>
 </head>
 <body>
-    <h1 data-bind="text: Title"></h1>
+    <div id="wrapper1">
+        <div id="wrapper2">
 
-    <div id="menuHolder" data-bind="with:UserContext">
-        <ul data-bind="menu: Permissions, foreach: Permissions">
-            <li>
-                <a href="#"><span class="#ui-icon ui-icon-disk" data-bind="text: Description"></span></a>
-                <ul data-bind="foreach: Items">
+            @*<h1 data-bind="text: Title"></h1>*@
+
+
+            <div id="menuHolder" data-bind="with: UserContext">
+
+                <ul data-bind="menu:1, foreach: Permissions">
                     <li>
-                        <a href="#" data-bind=" click: $root.MenuSelected"><span class="#ui-icon ui-icon-disk" data-bind="text: Description"></span></a>
+                        <a href="#"><span data-bind="text: Description"></span></a>
+                        <ul data-bind="foreach: Items">
+                            <li>
+                                <a href="#" data-bind=" click: $root.MenuSelected"><span data-bind="    text: Description"></span></a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
-            </li>
-        </ul>
+            </div>
+
+            <div id="pluginHolder">
+                <ul id="tabs" data-bind="tabs: TabCount, foreach: OpenTabs">
+                    <li data-bind="attr: { type: Name }"><a data-bind="    attr: { href: NavTabId }, text: Description"></a><span data-bind="    click: $parent.CloseTab" class="ui-icon ui-icon-close" role="presentation">Remove Tab</span></li>
+                </ul>
+                <!-- ko foreach: OpenTabs -->
+                <div data-bind="attr: { id: TabId }, html: View">
+                </div>
+                <!-- /ko -->
+            </div>
+        </div>
     </div>
-    <div>
-    </div>
-    <script type="text/javascript" data-main='App/init' src="~/Scripts/require.js"></script>
 </body>
 </html>
