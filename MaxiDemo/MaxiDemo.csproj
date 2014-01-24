@@ -218,10 +218,7 @@
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\themes\default\css\toastr.less" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
-    <None Include="Scripts\breeze.intellisense.js" />
     <Content Include="Scripts\array.extensions.js" />
-    <Content Include="Scripts\breeze.debug.js" />
-    <Content Include="Scripts\breeze.min.js" />
     <Content Include="Scripts\domReady.js" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
@@ -235,8 +232,6 @@
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
     <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="Scripts\modernizr-2.7.1.js" />
-    <Content Include="Scripts\q.js" />
-    <Content Include="Scripts\q.min.js" />
     <Content Include="Scripts\r.js" />
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\text.js" />

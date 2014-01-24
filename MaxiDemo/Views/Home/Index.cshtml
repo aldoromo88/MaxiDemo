@@ -37,7 +37,7 @@
             <li data-bind="attr: { type: Name }"><a data-bind="    attr: { href: NavTabId }, text: Description"></a><span data-bind="    click: $parent.CloseTab" class="ui-icon ui-icon-close" role="presentation">Remove Tab</span></li>
         </ul>
         <!-- ko foreach: OpenTabs -->
-        <div data-bind="attr: { id: TabId }, html: View" >
+        <div data-bind="attr: { id: TabId }, html: View" class="plugin" >
         </div>
         <!-- /ko -->
     </div>

@@ -7,8 +7,6 @@ requirejs.config({
         'jquery': '../Scripts/jquery-2.0.3',
         'jqueryui': '../Scripts/jquery-ui-1.10.4.custom',
         'domReady': '../Scripts/domReady',
-        'breeze': '../Scripts/breeze.min',
-        'Q': '../Scripts/q',
         'toastr': '../Scripts/toastr',
         'arrayExtensions': '../Scripts/array.extensions',
         'logger': 'helpers/logger'
@@ -35,6 +33,6 @@ requirejs.config({
 //define('jquery', function () { return jQuery; });
 //define('knockout', ko);
 
-require(['knockout', 'viewModels/core/shell', 'customBindings/jqueryUiBindings', 'Q', 'domReady!'], function (ko, shellViewModel) {
+require(['knockout', 'viewModels/core/shell', 'customBindings/jqueryUiBindings', 'domReady!'], function (ko, shellViewModel) {
     ko.applyBindings(shellViewModel);
 });
