@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using MaxiDemo.Data.DTO;
 
@@ -9,6 +8,15 @@ namespace MaxiDemo.Data.Applications
     {
 
         public AuthenticationResponse AuthenticateUser(string loginName, string password)
+        {
+            return new AuthenticationResponse
+            {
+                IsValid = true,
+                IdUser = 1240,
+            };
+        }
+
+        public dynamic GetPermissions(int idUser)
         {
             var menuOptions = new List<UserPermission>
                 {
@@ -25,27 +33,19 @@ namespace MaxiDemo.Data.Applications
                     new UserPermission{ DisplayName = "Rep Finanzas 3", ParentName = "Finanzas", Name = "RepFinanzas3"},
 
                 };
-
-
-            return new AuthenticationResponse
-            {
-                IsValid = true,
-                UserName = "User Demo",
-                SessionGuid = Guid.NewGuid(),
-                Permissions = menuOptions
-                                .GroupBy(permission => permission.ParentName)
-                                .Select(grouping => new
-                                {
-                                    Description = grouping.Key,
-                                    Items = grouping.Select(c => new
-                                    {
-                                        Description = c.DisplayName,
-                                        c.Name,
-                                        c.IsSingleInstance,
-                                        ParentName = grouping.Key
-                                    })
-                                })
-            };
+            return menuOptions
+                .GroupBy(permission => permission.ParentName)
+                .Select(grouping => new
+                {
+                    Description = grouping.Key,
+                    Items = grouping.Select(c => new
+                    {
+                        Description = c.DisplayName,
+                        c.Name,
+                        c.IsSingleInstance,
+                        ParentName = grouping.Key
+                    })
+                });
         }
     }
 }

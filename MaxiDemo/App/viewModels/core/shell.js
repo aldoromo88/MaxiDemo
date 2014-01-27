@@ -1,22 +1,18 @@
-﻿define(['knockout', 'logger', '../../proxies/userProxy'], function (ko, logger, userProxy) {
+﻿define(['knockout', 'logger', 'proxies/userProxy'], function (ko, logger, userProxy) {
     init();
 
     var _pluginHolder = $('#pluginHolder');
     var _title = ko.observable('Maxi Demo');
-    var _userContext = ko.observable();
+    var _menuOptions = ko.observableArray();
     var _opeenTabs = ko.observableArray();
     var _tabCount = ko.observable(-1);
 
     function init() {
-        login('Aldo', 'Test');
-    }
-
-    function login(loginName, password) {
-        userProxy.Login(loginName, password, function (data) {
-            _userContext(data);
+        userProxy.GetMenuOprion(function (data) {
+            _menuOptions(data);
         });
     }
-
+    
     function menuSelected(menuItem) {
         logger.info('test', menuItem.Name);
 
@@ -61,10 +57,9 @@
 
     return {
         Title: _title,
-        UserContext: _userContext,
+        MenuOptions: _menuOptions,
         OpenTabs: _opeenTabs,
         TabCount:_tabCount,
-        Login: login,
         MenuSelected: menuSelected,
         CloseTab:closeTab,
         

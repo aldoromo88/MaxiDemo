@@ -1,0 +1,40 @@
+﻿@model MaxiDemo.Models.LoginModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "loginForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <fieldset>
+            <legend>Log in Form</legend>
+            <ol>
+                <li>
+                    @Html.LabelFor(m => m.LoginName)
+                    @Html.TextBoxFor(m => m.LoginName, new { autofocus = "autofocus", id = "loginName" })
+                    @Html.ValidationMessageFor(m => m.LoginName)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password)
+                    @Html.ValidationMessageFor(m => m.Password)
+                </li>
+                <li>
+                    <input type="submit" value="Log in" />
+                </li>
+            </ol>
+            @Html.ValidationSummary()
+        </fieldset>
+    }
+</body>
+</html>

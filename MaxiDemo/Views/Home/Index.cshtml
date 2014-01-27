@@ -1,7 +1,14 @@
 ﻿@{
     Layout = null;
 }
-
+@functions{
+    public string GetAntiForgeryToken()
+    {
+        string cookieToken, formToken;
+        AntiForgery.GetTokens(null, out cookieToken, out formToken);
+        return cookieToken + ":" + formToken;                
+    }
+}
 <!DOCTYPE html>
 
 <html>
@@ -15,32 +22,42 @@
 
 
     <script type="text/javascript" data-main='App/init' src="~/Scripts/require.js"></script>
-    
+
+
 </head>
-<body>
+    <body>
+        
+        <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />
+        <div id="menuHolder">
+            <ul data-bind="menu: 1, foreach: MenuOptions">
 
-    <div id="menuHolder" data-bind="with: UserContext">
-        <ul data-bind="menu: 1, foreach: Permissions">
-            <li>
-                <a href="#"><span data-bind="text: Description"></span></a>
-                <ul data-bind="foreach: Items">
-                    <li>
-                        <a href="#" data-bind=" click: $root.MenuSelected"><span data-bind="    text: Description"></span></a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+                <li>
+                    <a href="#"><span data-bind="text: Description"></span></a>
+                    <ul data-bind="foreach: Items">
+                        <li>
+                            <a href="#" data-bind=" click: $root.MenuSelected"><span data-bind="    text: Description"></span></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 
-    <div id="pluginHolder">
-        <ul id="tabs" data-bind="tabs: TabCount, foreach: OpenTabs">
-            <li data-bind="attr: { type: Name }"><a data-bind="    attr: { href: NavTabId }, text: Description"></a><span data-bind="    click: $parent.CloseTab" class="ui-icon ui-icon-close" role="presentation">Remove Tab</span></li>
-        </ul>
-        <!-- ko foreach: OpenTabs -->
-        <div data-bind="attr: { id: TabId }, html: View" class="plugin" >
         </div>
-        <!-- /ko -->
-    </div>
+        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()" class="logoff">Log off</a>
+            
+        }
 
-</body>
+        <div id="pluginHolder">
+            <ul id="tabs" data-bind="tabs: TabCount, foreach: OpenTabs">
+                <li data-bind="attr: { type: Name }"><a data-bind="    attr: { href: NavTabId }, text: Description"></a><span data-bind="    click: $parent.CloseTab" class="ui-icon ui-icon-close" role="presentation">Remove Tab</span></li>
+            </ul>
+            <!-- ko foreach: OpenTabs -->
+            <div data-bind="attr: { id: TabId }, html: View" class="plugin">
+            </div>
+            <!-- /ko -->
+        </div>
+
+    </body>
 </html>

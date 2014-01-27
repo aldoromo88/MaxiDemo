@@ -1,10 +1,12 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using MaxiDemo.Data.Applications;
-using MaxiDemo.Data.DTO;
-using MaxiDemo.Models;
+using MaxiDemo.Filters;
 
 namespace MaxiDemo.Controllers
 {
+    [Authorize]
+    [ValidateHttpAntiForgeryToken]
     public class UserController : ApiController
     {
         private UserApplication _userApplication;
@@ -16,11 +18,11 @@ namespace MaxiDemo.Controllers
                 return _userApplication ?? (_userApplication = new UserApplication());
             }
         }
-
-        public AuthenticationResponse PostLogIn(LoginModel user)
+        
+        public dynamic GetMenu()
         {
-            AuthenticationResponse authenticationResponse = UserApplication.AuthenticateUser(user.LoginName, user.Password);
-            return authenticationResponse;
+            var permissions= UserApplication.GetPermissions(Convert.ToInt32(User.Identity.Name));
+            return permissions;
         }
     }
 }

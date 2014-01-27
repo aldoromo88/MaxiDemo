@@ -1,29 +1,10 @@
-﻿define(['logger'], function (logger) {
+﻿define(['proxies/baseProxy'], function (baseProxy) {
 
-    function login(loginName, password, callback) {
-        $.ajax({
-            type: 'POST',
-            url: 'Api/User',
-            dataType: 'json',
-            contentType: "application/json; charset=utf-8",
-            traditional: true,
-            data: JSON.stringify({
-                LoginName: loginName,
-                Password: password
-            }),
-            cache: false,
-            success: function (data) {
-                callback.call(this, data);
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                logger.error(textStatus, errorThrown);
-            }
-        });
-
-
+    function getMenuOprion(callback) {
+        baseProxy.AjaxRequest('GET', 'Api/User', {}, callback);
     }
 
     return {
-        Login: login
+        GetMenuOprion: getMenuOprion
     };
 });
