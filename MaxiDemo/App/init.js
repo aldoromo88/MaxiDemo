@@ -4,7 +4,7 @@ requirejs.config({
         'text': '../Scripts/text',
         'knockout': '../Scripts/knockout-3.0.0.debug',
         'koMapping': '../Scripts/knockout.mapping-latest.debug',
-        'jquery': '../Scripts/jquery-2.0.3',
+        'jquery': '../Scripts/jquery-2.1.0',
         'jqueryui': '../Scripts/jquery-ui-1.10.4.custom',
         'domReady': '../Scripts/domReady',
         'toastr': '../Scripts/toastr',
