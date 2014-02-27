@@ -11,17 +11,14 @@ namespace MaxiDemo.Controllers
     {
         private UserApplication _userApplication;
 
-        protected UserApplication UserApplication
+        public UserController(UserApplication userApplication)
         {
-            get
-            {
-                return _userApplication ?? (_userApplication = new UserApplication());
-            }
+            _userApplication = userApplication;
         }
-        
+
         public dynamic GetMenu()
         {
-            var permissions= UserApplication.GetPermissions(Convert.ToInt32(User.Identity.Name));
+            var permissions= _userApplication.GetPermissions(Convert.ToInt32(User.Identity.Name));
             return permissions;
         }
     }

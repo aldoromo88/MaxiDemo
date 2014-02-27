@@ -6,7 +6,6 @@ namespace MaxiDemo.Data.Applications
 {
     public class UserApplication
     {
-
         public AuthenticationResponse AuthenticateUser(string loginName, string password)
         {
             return new AuthenticationResponse
