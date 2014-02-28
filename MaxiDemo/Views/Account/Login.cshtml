@@ -1,14 +1,17 @@
-﻿@model MaxiDemo.Models.LoginModel
+﻿﻿@model MaxiDemo.Models.LoginModel
 
 @{
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
 <head>
     <meta name="viewport" content="width=device-width" />
+	<link href="~/Content/themes/default/css/login.css" rel="stylesheet" />
     <title>Login</title>
 </head>
 <body>
@@ -18,22 +21,21 @@
 
         <fieldset>
             <legend>Log in Form</legend>
-            <ol>
-                <li>
+            <p>
                     @Html.LabelFor(m => m.LoginName)
                     @Html.TextBoxFor(m => m.LoginName, new { autofocus = "autofocus", id = "loginName" })
-                    @Html.ValidationMessageFor(m => m.LoginName)
-                </li>
-                <li>
+            </p>
+			<p>
                     @Html.LabelFor(m => m.Password)
-                    @Html.PasswordFor(m => m.Password)
-                    @Html.ValidationMessageFor(m => m.Password)
-                </li>
-                <li>
-                    <input type="submit" value="Log in" />
-                </li>
-            </ol>
+                    @Html.PasswordFor(m => m.Password, new {id = "password"})
+            </p>
+            <p class="login-submit">
+				<button type="submit" class="login-button">Login</button>
+			</p>
+            
+			<p>
             @Html.ValidationSummary()
+			</p>
         </fieldset>
     }
 </body>
