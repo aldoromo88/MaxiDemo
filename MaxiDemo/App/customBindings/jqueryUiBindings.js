@@ -3,7 +3,10 @@
         init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
             var menu = $(element);
             menu.menu({ position: { my: "left bottom", at: "right-50 top+0" } });
-            $('.ui-menu-icon.ui-icon.ui-icon-carat-1-e').remove();
+            //$('.ui-menu-icon.ui-icon.ui-icon-carat-1-e').remove();
+
+            menu.removeClass("ui-menu");
+            menu.addClass("ui-menuHorizontal");
 
             var blurTimer;
             var blurTimeAbandoned = 300;  // time in ms for when menu is consider no longer in focus
@@ -19,8 +22,10 @@
             });
         },
         update: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
-            $(element).menu({ position: { my: "left bottom", at: "right-50 top+0" } });
-            $('.ui-menu-icon.ui-icon.ui-icon-carat-1-e').remove();
+        	$(element).menu({ position: { my: "left bottom", at: "right-50 top+0" } });
+        	menu.removeClass("ui-menu");
+        	menu.addClass("ui-menuHorizontal");
+            //$('.ui-menu-icon.ui-icon.ui-icon-carat-1-e').remove();
         }
     };
     ko.bindingHandlers.tabs = {

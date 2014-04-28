@@ -1,0 +1,21 @@
+﻿.ui-menuHorizontal {
+	list-style: none;
+	padding: 2px;
+	margin: 0;
+	display: flex;
+	outline: none;
+    overflow: visible !important;
+}
+.ui-menuHorizontal .ui-menu {
+	overflow: visible !important;
+    margin-top: -3px;
+    display: block;
+	position: absolute;
+}
+.ui-menuHorizontal .ui-menu-item {
+	margin: 0;
+	padding: 0;
+	width: auto;
+	/* support: IE10, see #8844 */
+	list-style: none;
+}

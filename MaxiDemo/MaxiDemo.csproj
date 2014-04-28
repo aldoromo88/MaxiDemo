@@ -176,6 +176,7 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\themes\default\css\colors.css" />
     <Content Include="Content\themes\default\css\home.css" />
+    <Content Include="Content\themes\default\css\jqueryUIPersonalizations.css" />
     <Content Include="Content\themes\redmond\images\animated-overlay.gif" />
     <Content Include="Content\themes\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
